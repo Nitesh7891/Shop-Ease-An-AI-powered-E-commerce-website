@@ -18,17 +18,17 @@ const uploadOnCloudinary = async (filePath) => {
       folder: "ShopEase_products",
     });
 
-    // remove file from local storage after upload
-    fs.unlinkSync(filePath);
+    if (fs.existsSync(filePath)) {
+      fs.unlinkSync(filePath)
+    }
 
     return response.secure_url;
   } catch (error) {
-    console.log("Cloudinary upload error:", error.message);
-
-    if (filePath) {
-      fs.unlinkSync(filePath);
+     if (fs.existsSync(filePath)) {
+      fs.unlinkSync(filePath)
     }
 
+    console.log("Cloudinary upload error:", error.message);
     return null;
   }
 };
