@@ -7,7 +7,7 @@ import uploadOnCloudinary from "../../config/cloudinary.js";
 
 export const addProduct = async (req, res) => {
   try {
-
+     console.log(req.files)
     const { name, description, price, category, subCategory, sizes, bestseller } = req.body;
 
     const image1 = req.files?.image1
