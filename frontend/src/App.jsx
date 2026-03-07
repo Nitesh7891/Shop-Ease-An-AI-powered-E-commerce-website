@@ -66,7 +66,7 @@ function App() {
           />
 
           <Route
-            path="/collection"
+            path="/collections"
             element={
               <ProtectedRoute>
                 <Collections />
