@@ -11,7 +11,7 @@ import Collections from "./pages/Collections";
 import { GoogleOAuthProvider } from "@react-oauth/google";
 import { userDataContext } from "./context/userContext";
 import ProtectedRoute from "./utils/ProtectedRoutes";
-
+import { Navigate } from "react-router-dom";
 function App() {
 
   const { userData } = useContext(userDataContext);
@@ -24,9 +24,7 @@ function App() {
 
         <Routes>
 
-          {/* Public Routes */}
-          <Route path="/login" element={<Login />} />
-          <Route path="/signup" element={<Registration />} />
+         {/* Public Routes */} <Route path="/login" element={userData ? <Navigate to="/" /> : <Login />} /> <Route path="/signup" element={userData ? <Navigate to="/" /> : <Registration />} />
 
           {/* Protected Routes */}
           <Route
