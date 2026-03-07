@@ -41,16 +41,24 @@ const Navbar = () => {
       </div>
       <div className="w-[40%] hidden lg:flex">
         <ul className="flex items-center justify-center gap-[19px] text-white">
-          <li className="text-[13px] hover:bg-slate-500 cursor-pointer bg-[#000000c9] py-[10px] px-[20px] rounded-2xl">
+          <li 
+          onClick={()=>navigate('/')}
+          className="text-[13px] hover:bg-slate-500 cursor-pointer bg-[#000000c9] py-[10px] px-[20px] rounded-2xl">
             HOME
           </li>
-          <li className="text-[13px] hover:bg-slate-500 cursor-pointer bg-[#000000c9] py-[10px] px-[20px] rounded-2xl">
+          <li 
+          onClick={()=>navigate('/collections')}
+          className="text-[13px] hover:bg-slate-500 cursor-pointer bg-[#000000c9] py-[10px] px-[20px] rounded-2xl">
             COLLECTIONS
           </li>
-          <li className="text-[13px] hover:bg-slate-500 cursor-pointer bg-[#000000c9] py-[10px] px-[20px] rounded-2xl">
+          <li 
+          onClick={()=>navigate('/about')}
+          className="text-[13px] hover:bg-slate-500 cursor-pointer bg-[#000000c9] py-[10px] px-[20px] rounded-2xl">
             ABOUT
           </li>
-          <li className="text-[13px] hover:bg-slate-500 cursor-pointer bg-[#000000c9] py-[10px] px-[20px] rounded-2xl">
+          <li 
+          onClick={()=>navigate('/contact')}
+          className="text-[13px] hover:bg-slate-500 cursor-pointer bg-[#000000c9] py-[10px] px-[20px] rounded-2xl">
             CONTACT
           </li>
         </ul>
@@ -115,17 +123,27 @@ const Navbar = () => {
             <li className="w-[100%] hover:bg-[#2f2f2f] px-[15px] py-[10px] cursor-pointer">
               Orders
             </li>
-            <li className="w-[100%] hover:bg-[#2f2f2f] px-[15px] py-[10px] cursor-pointer">
+            <li 
+            onClick={()=>navigate('/about')}
+            className="w-[100%] hover:bg-[#2f2f2f] px-[15px] py-[10px] cursor-pointer">
               About
             </li>
           </ul>
         </div>
       )}
       <div className="w-[100vw] h-[90px] flex items-center justify-between px-[20px] fixed bottom-0 left-0 bg-[#191818] md:hidden">
-        <button className=" text-[2vh] text-white flex items-center justify-center flex-col gap-[2px] ">< FaHome className="w-[30px] h-[30px] text-white md:hidden"/>HOME</button>
-          <button className="text-[2vh] text-white flex items-center justify-center flex-col gap-[2px] ">< HiOutlineCollection className="w-[30px] h-[30px] text-white md:hidden"/>COLLECTIONS</button>
-            <button className="text-[2vh] text-white flex items-center justify-center flex-col gap-[2px] ">< MdContacts  className="w-[30px] h-[30px] text-white md:hidden"/>CONTACT</button>
-              <button className="text-[2vh] text-white flex items-center justify-center flex-col gap-[2px] ">< IoCart className="w-[30px] h-[30px] text-white md:hidden"/>CART</button>
+        <button 
+        onClick={()=>navigate('/')}
+        className=" text-[2vh] text-white flex items-center justify-center flex-col gap-[2px] ">< FaHome className="w-[30px] h-[30px] text-white md:hidden"/>HOME</button>
+          <button 
+          onClick={()=>navigate('/collections')}
+          className="text-[2vh] text-white flex items-center justify-center flex-col gap-[2px] ">< HiOutlineCollection className="w-[30px] h-[30px] text-white md:hidden"/>COLLECTIONS</button>
+            <button 
+            onClick={()=>navigate('/contact')}
+            className="text-[2vh] text-white flex items-center justify-center flex-col gap-[2px] ">< MdContacts  className="w-[30px] h-[30px] text-white md:hidden"/>CONTACT</button>
+              <button 
+              onClick={()=>navigate('/cart')}
+              className="text-[2vh] text-white flex items-center justify-center flex-col gap-[2px] ">< IoCart className="w-[30px] h-[30px] text-white md:hidden"/>CART</button>
       </div>
     </div>
   );
