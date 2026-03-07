@@ -1,11 +1,12 @@
 import { createContext, useContext, useEffect, useState } from "react";
 import {authDataContext} from "./authContext"
+import axios from "axios";
 
 export const shopDataContext=createContext();
 
 const ShopContext = ({children}) => {
     let [products,setProducts]=useState([])
-    let {serverUrl}=useContext(autDataContext)
+    let {serverUrl}=useContext(authDataContext)
     let currency="₹"
     let delivery_fee=50;
 
@@ -36,7 +37,9 @@ const ShopContext = ({children}) => {
     }
   return (
     <div>
-      
+      <shopDataContext.Provider value={value}>
+        {children}
+      </shopDataContext.Provider>
     </div>
   )
 }
