@@ -2,6 +2,7 @@ import React, { useState,useEffect } from 'react'
 import Navbar from '../components/Navbar'
 import Background from '../components/Background'
 import Hero from '../components/Hero'
+import Product from './Product'
 
 const Home = () => {
   const heroData = [
@@ -42,6 +43,7 @@ const Home = () => {
         <Background heroCount={heroCount} />
       </div>
 
+     <Product/>
     </div>
   )
 }
