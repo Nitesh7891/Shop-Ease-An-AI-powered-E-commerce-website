@@ -5,31 +5,59 @@ import Login from "./pages/Login";
 import Add from "./pages/Add";
 import List from "./pages/List";
 import Orders from "./pages/Orders";
-import { useContext } from "react";
-import { adminDataContext } from "./context/AdminContext";
+import AdminProtectedRoute from "./components/AdminProtectedRoute";
 
 function App() {
 
-  const { adminData, loading } = useContext(adminDataContext);
+  return (
+    <Routes>
 
-if (loading) {
-  return <div>Loading...</div>;
-}
+      {/* Public Route */}
+      <Route path="/login" element={<Login />} />
 
-return (
-  <>
-    {!adminData ? (
-      <Login />
-    ) : (
-      <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/add" element={<Add />} />
-        <Route path="/lists" element={<List />} />
-        <Route path="/orders" element={<Orders />} />
-      </Routes>
-    )}
-  </>
-);
+      {/* Protected Admin Routes */}
+
+      <Route
+        path="/"
+        element={
+          <AdminProtectedRoute>
+            <Home />
+          </AdminProtectedRoute>
+        }
+      />
+
+      <Route
+        path="/add"
+        element={
+          <AdminProtectedRoute>
+            <Add />
+          </AdminProtectedRoute>
+        }
+      />
+
+      <Route
+        path="/lists"
+        element={
+          <AdminProtectedRoute>
+            <List />
+          </AdminProtectedRoute>
+        }
+      />
+
+      <Route
+        path="/orders"
+        element={
+          <AdminProtectedRoute>
+            <Orders />
+          </AdminProtectedRoute>
+        }
+      />
+
+      {/* Redirect unknown routes */}
+      <Route path="*" element={<Navigate to="/" />} />
+
+    </Routes>
+  );
 }
 
 export default App;
