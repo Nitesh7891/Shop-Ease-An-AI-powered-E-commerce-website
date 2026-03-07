@@ -65,7 +65,7 @@ export const addProduct = async (req, res) => {
    Get All Products
 ========================= */
 
-export const getAllProducts = async (req, res) => {
+export const ListProducts = async (req, res) => {
   try {
 
     const products = await Product.find();
@@ -83,7 +83,34 @@ export const getAllProducts = async (req, res) => {
   }
 };
 
+/* =========================
+   Delete Product
+========================= */
 
+export const deleteProduct = async (req, res) => {
+  try {
+
+    const product = await Product.findByIdAndDelete(req.params.id);
+
+    if (!product) {
+      return res.status(404).json({
+        success: false,
+        message: "Product not found"
+      });
+    }
+
+    res.json({
+      success: true,
+      message: "Product deleted successfully"
+    });
+
+  } catch (error) {
+    res.status(500).json({
+      success: false,
+      message: "Error deleting product"
+    });
+  }
+};
 
 /* =========================
    Get Single Product
@@ -116,31 +143,6 @@ export const getSingleProduct = async (req, res) => {
 
 
 
-/* =========================
-   Delete Product
-========================= */
 
-export const deleteProduct = async (req, res) => {
-  try {
 
-    const product = await Product.findByIdAndDelete(req.params.id);
 
-    if (!product) {
-      return res.status(404).json({
-        success: false,
-        message: "Product not found"
-      });
-    }
-
-    res.json({
-      success: true,
-      message: "Product deleted successfully"
-    });
-
-  } catch (error) {
-    res.status(500).json({
-      success: false,
-      message: "Error deleting product"
-    });
-  }
-};
