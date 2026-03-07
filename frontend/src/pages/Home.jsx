@@ -23,7 +23,7 @@ const Home = () => {
   }, [])
 
   return (
-    <div className="w-screen h-screen bg-gradient-to-l from-[#141414] to-[#0c2025] overflow-y-hidden
+    <div className="w-screen min-h-screen bg-gradient-to-l from-[#141414] to-[#0c2025]
 ">
       
       {/* FIXED NAVBAR */}
