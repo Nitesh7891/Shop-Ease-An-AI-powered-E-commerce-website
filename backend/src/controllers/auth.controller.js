@@ -152,7 +152,7 @@ export const adminLogin = async (req,res) => {
 
     const token =await generateAdminToken(email);
 
-    res.cookie("token", token, {
+    res.cookie("admintoken", token, {
         httpOnly:true,
         secure:false,
         sameSite:"Strict",
